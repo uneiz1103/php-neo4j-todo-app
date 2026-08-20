@@ -9,6 +9,26 @@ $neo4j = new Neo4j();
 
 $todoRepository = new TodoRepository($neo4j);
 
-$todo = $todoRepository->createTodo("MYPHP");
+// CREATE
+
+// $todo = $todoRepository->createTodo(3, "Cypher");
+
+// echo $todo->getProperty('title');
+
+// GET ALL TODOS
+
+// $result = $todoRepository->getAllTodos();
+
+// foreach($result as $record) {
+//     $todo = $record->get('t');
+//     echo $todo->getproperty('title'). PHP_EOL;
+// }
+
+// GET TODOS BY ID
+
+$result = $todoRepository->getTodosById(3);
+
+$todo = $result->first()->get('t');
 
 echo $todo->getProperty('title');
+
